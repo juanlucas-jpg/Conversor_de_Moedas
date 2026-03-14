@@ -9,6 +9,7 @@ const amount = document.getElementById("amount");
 const currency  = document.getElementById("currency");
 const footer = document.querySelector("main  footer");
 const description = document.getElementById("description");
+const result = document.getElementById("result");
 
 
 // Configurando o imput amount para receber somente numeros
@@ -41,6 +42,20 @@ function convertCurrency(amount, price, symbol){
   try {
     // Exibe a cotação da moeda selecionada
     description.textContent = `${symbol}1 = ${formatCurrencyBRL(price)}`
+    
+    //Calcula o valor total da conversão
+    let total = amount * price
+
+    // Verifica se o resultado não é um número
+    if(isNaN(total)) {
+      return alert("Por favor, insira um valor numérico válido.")
+    }
+
+    // Formata o valor total para o formato de moeda brasileira e remove o símbolo "R$" para exibir somente o valor numérico
+    total = formatCurrencyBRL(total).replace("R$", "")
+
+    // Exibe o resultado da conversão
+    result.textContent = `${total} Reais`
 
     // Aplica a classe que exibe o footer para mostrar o resultado
     footer.classList.add("show-result")
