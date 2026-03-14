@@ -25,9 +25,9 @@ body {
   width: 100%;
   height: 100vh;
 
-  background-image: url("./img/bg.png");
-  background-size: contain;
-
+  background-image: url("./img/bc-Juan.png");
+  background-size: 100%;
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
