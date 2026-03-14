@@ -4,9 +4,10 @@ const EUR = 5.39
 const GBP = 6.20
 
 // Obtendo os elementos do DOM
-const form = document.getElementById("form");
+const form = document.querySelector("form");
 const amount = document.getElementById("amount");
 const currency  = document.getElementById("currency");
+const footer = document.querySelector("main  footer");
 
 // Configurando o imput amount para receber somente numeros
 amount.addEventListener("input", () => {
@@ -34,4 +35,14 @@ form.onsubmit = (event) => {
 
 // Função para converter o valor para reais
 function convertCurrency(amount, price, symbol){
+  // Aplica a classe que exibe o footer para mostrar o resultado
+  try {
+    footer.classList.add("show=result")
+  }
+  catch (error) {
+    // Remove a classe que exibe o footer para esconder o resultado
+    footer.classList.remove("show=result")
+    console.error(error)
+    alert("Ocorreu um erro ao converter a moeda, tente novamente mais tarde.")
+  }
 }
